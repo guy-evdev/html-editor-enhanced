@@ -41,8 +41,7 @@ class ContextMenu {
   ///Event fired when a context menu item has been clicked.
   ///
   ///[contextMenuItemClicked] represents the [ContextMenuItem] clicked.
-  final void Function(ContextMenuItem contextMenuItemClicked)?
-      onContextMenuActionItemClicked;
+  final void Function(ContextMenuItem contextMenuItemClicked)? onContextMenuActionItemClicked;
 
   ///Context menu options.
   final ContextMenuOptions? options;
@@ -50,18 +49,10 @@ class ContextMenu {
   ///List of the custom [ContextMenuItem].
   final List<ContextMenuItem> menuItems;
 
-  ContextMenu(
-      {this.menuItems = const [],
-      this.onCreateContextMenu,
-      this.onHideContextMenu,
-      this.options,
-      this.onContextMenuActionItemClicked});
+  ContextMenu({this.menuItems = const [], this.onCreateContextMenu, this.onHideContextMenu, this.options, this.onContextMenuActionItemClicked});
 
   Map<String, dynamic> toMap() {
-    return {
-      'menuItems': menuItems.map((menuItem) => menuItem.toMap()).toList(),
-      'options': options?.toMap()
-    };
+    return {'menuItems': menuItems.map((menuItem) => menuItem.toMap()).toList(), 'options': options?.toMap()};
   }
 
   Map<String, dynamic> toJson() {
@@ -88,8 +79,7 @@ class ContextMenuItem {
   ///Menu item action that will be called when an user clicks on it.
   Function()? action;
 
-  ContextMenuItem(
-      {this.androidId, this.iosId, required this.title, this.action});
+  ContextMenuItem({this.androidId, this.iosId, required this.title, this.action});
 
   Map<String, dynamic> toMap() {
     return {'androidId': androidId, 'iosId': iosId, 'title': title};
@@ -113,9 +103,7 @@ class ContextMenuOptions {
   ContextMenuOptions({this.hideDefaultSystemContextMenuItems = false});
 
   Map<String, dynamic> toMap() {
-    return {
-      'hideDefaultSystemContextMenuItems': hideDefaultSystemContextMenuItems
-    };
+    return {'hideDefaultSystemContextMenuItems': hideDefaultSystemContextMenuItems};
   }
 
   Map<String, dynamic> toJson() {
@@ -142,8 +130,7 @@ class UserScriptInjectionTime {
   static UserScriptInjectionTime? fromValue(int? value) {
     if (value != null) {
       try {
-        return UserScriptInjectionTime.values
-            .firstWhere((element) => element.toValue() == value);
+        return UserScriptInjectionTime.values.firstWhere((element) => element.toValue() == value);
       } catch (e) {
         return null;
       }
@@ -203,23 +190,12 @@ class UserScript {
   ///For more information about content worlds, see [ContentWorld].
   late ContentWorld contentWorld;
 
-  UserScript(
-      {this.groupName,
-      required this.source,
-      required this.injectionTime,
-      this.iosForMainFrameOnly = true,
-      ContentWorld? contentWorld}) {
+  UserScript({this.groupName, required this.source, required this.injectionTime, this.iosForMainFrameOnly = true, ContentWorld? contentWorld}) {
     this.contentWorld = contentWorld ?? ContentWorld.PAGE;
   }
 
   Map<String, dynamic> toMap() {
-    return {
-      'groupName': groupName,
-      'source': source,
-      'injectionTime': injectionTime.toValue(),
-      'iosForMainFrameOnly': iosForMainFrameOnly,
-      'contentWorld': contentWorld.toMap()
-    };
+    return {'groupName': groupName, 'source': source, 'injectionTime': injectionTime.toValue(), 'iosForMainFrameOnly': iosForMainFrameOnly, 'contentWorld': contentWorld.toMap()};
   }
 
   Map<String, dynamic> toJson() {
@@ -253,14 +229,12 @@ class ContentWorld {
   ///Returns the custom content world with the specified name.
   ContentWorld.world({required this.name}) {
     // WINDOW-ID- is used internally by the plugin!
-    assert(!name.startsWith('WINDOW-ID-') &&
-        !name.contains(_contentWorldNameRegExp));
+    assert(!name.startsWith('WINDOW-ID-') && !name.contains(_contentWorldNameRegExp));
   }
 
   ///The default world for clients.
   // ignore: non_constant_identifier_names
-  static final ContentWorld DEFAULT_CLIENT =
-      ContentWorld.world(name: 'defaultClient');
+  static final ContentWorld DEFAULT_CLIENT = ContentWorld.world(name: 'defaultClient');
 
   ///The content world for the current webpage’s content.
   ///This property contains the content world for scripts that the current webpage executes.

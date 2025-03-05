@@ -83,9 +83,7 @@ class HtmlEditorController {
 
   /// A function to execute JS passed as a [WebScript] to the editor. This should
   /// only be used on Flutter Web.
-  Future<dynamic> evaluateJavascriptWeb(String name,
-          {bool hasReturnValue = false}) =>
-      Future.value();
+  Future<dynamic> evaluateJavascriptWeb(String name, {bool hasReturnValue = false}) => Future.value();
 
   /// Gets the text from the editor and returns it as a [String].
   Future<String> getText() => Future.value('');
@@ -96,8 +94,7 @@ class HtmlEditorController {
   /// [withHtmlTags] may not work properly when the selected text is entirely
   /// within one HTML tag. However if the selected text spans multiple different
   /// tags, it should work as expected.
-  Future<String> getSelectedTextWeb({bool withHtmlTags = false}) =>
-      Future.value('');
+  Future<String> getSelectedTextWeb({bool withHtmlTags = false}) => Future.value('');
 
   /// Insert HTML at the position of the cursor in the editor
   /// Note: This method should not be used for plaintext strings
