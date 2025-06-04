@@ -1,3 +1,10 @@
+## [2.6.2] = 2025-06-04
+* Updated dependencies
+
+## [2.6.1] = 2025-03-9
+* Min iOS version changed to v12.0
+* Updated dependencies
+
 ## [2.6.0] = 2024-05-18
 * Fix build issues on Flutter 3.22.0+ due to deprecations
 * Update dependencies
