@@ -238,7 +238,7 @@ are enabled to improve the UX. You can still re-enable the rest if you want.
 * [BREAKING] Switch to `StatelessWidget`
    * You no longer need a `GlobalKey` for the `HtmlEditorState`. All of the methods are static and can be called like so:
    ```dart
-   HtmlEditor.setEmpty(); 
+   HtmlEditor.setEmpty()
    ```
 * Fix deprecations and update dependencies
 
