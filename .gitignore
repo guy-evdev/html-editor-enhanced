@@ -4,6 +4,17 @@
 .packages
 .pub/
 
-build/
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Flutter/Dart/Pub related
+**/doc/api/
 .flutter-plugins
+.pub-cache/
+build/
+flutter_sdk.fvm
+.fvm/
 .flutter-plugins-dependencies
