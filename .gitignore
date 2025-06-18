@@ -8,7 +8,7 @@
 *.iml
 *.ipr
 *.iws
-#.idea/
+.idea/
 
 # Flutter/Dart/Pub related
 **/doc/api/
