@@ -1,3 +1,7 @@
+## [2.7.0] = 2025-06-04
+* Updated dependencies
+* Fix: Undefined name 'platformViewRegistry'
+
 ## [2.6.2] = 2025-06-04
 * Updated dependencies
 
