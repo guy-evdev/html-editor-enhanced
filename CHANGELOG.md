@@ -1,3 +1,6 @@
+## [2.7.1] = 2025-06-18
+* Fix: Fixed deprecated window.physicalSize
+
 ## [2.7.0] = 2025-06-18
 * Updated dependencies
 * Fix: Undefined name 'platformViewRegistry'
