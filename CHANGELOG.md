@@ -1,3 +1,6 @@
+## [2.8.0] = 2026-04-14
+* Updated dependencies
+
 ## [2.7.1] = 2025-06-18
 * Fix: Fixed deprecated window.physicalSize
 

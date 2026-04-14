@@ -1595,7 +1595,7 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                                   // style: ElevatedButton.styleFrom(
                                   //     backgroundColor: Theme.of(context).dialogBackgroundColor, padding: EdgeInsets.only(left: 5, right: 5), elevation: 0.0),
                                   onPressed: () async {
-                                    result = await FilePicker.platform.pickFiles(
+                                    result = await FilePicker.pickFiles(
                                       type: FileType.image,
                                       withData: true,
                                       allowedExtensions: widget.htmlToolbarOptions.imageExtensions,
@@ -1712,7 +1712,7 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                                       style: ElevatedButton.styleFrom(
                                           backgroundColor: Theme.of(context).dialogBackgroundColor, padding: EdgeInsets.only(left: 5, right: 5), elevation: 0.0),
                                       onPressed: () async {
-                                        result = await FilePicker.platform.pickFiles(
+                                        result = await FilePicker.pickFiles(
                                           type: FileType.audio,
                                           withData: true,
                                           allowedExtensions: widget.htmlToolbarOptions.audioExtensions,
@@ -1823,7 +1823,7 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                                       style: ElevatedButton.styleFrom(
                                           backgroundColor: Theme.of(context).dialogBackgroundColor, padding: EdgeInsets.only(left: 5, right: 5), elevation: 0.0),
                                       onPressed: () async {
-                                        result = await FilePicker.platform.pickFiles(
+                                        result = await FilePicker.pickFiles(
                                           type: FileType.video,
                                           withData: true,
                                           allowedExtensions: widget.htmlToolbarOptions.videoExtensions,
@@ -1934,7 +1934,7 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                                       style: ElevatedButton.styleFrom(
                                           backgroundColor: Theme.of(context).dialogBackgroundColor, padding: EdgeInsets.only(left: 5, right: 5), elevation: 0.0),
                                       onPressed: () async {
-                                        result = await FilePicker.platform.pickFiles(
+                                        result = await FilePicker.pickFiles(
                                           type: FileType.any,
                                           withData: true,
                                           allowedExtensions: widget.htmlToolbarOptions.otherFileExtensions,
