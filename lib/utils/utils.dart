@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:html_editor_enhanced/html_editor.dart';
@@ -117,9 +117,9 @@ class ExpandIconDelegate extends SliverPersistentHeaderDelegate {
       child: IconButton(
         constraints: BoxConstraints(
           maxHeight: _size!,
-          maxWidth: _size!,
+          maxWidth: _size,
         ),
-        iconSize: _size! * 3 / 5,
+        iconSize: _size * 3 / 5,
         icon: Icon(
           _isExpanded ? Icons.expand_less : Icons.expand_more,
           color: Colors.grey,

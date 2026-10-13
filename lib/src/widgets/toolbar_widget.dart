@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:file_picker/file_picker.dart';
 import 'package:flex_color_picker/flex_color_picker.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
 import 'package:html_editor_enhanced/html_editor.dart';
 import 'package:html_editor_enhanced/utils/utils.dart';
@@ -448,7 +448,7 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
           decoration: !widget.htmlToolbarOptions.renderBorder
               ? null
               : widget.htmlToolbarOptions.dropdownBoxDecoration ??
-                  BoxDecoration(color: Theme.of(context).scaffoldBackgroundColor, border: Border.all(color: Theme.of(context).colorScheme.onSurface.withOpacity(0.12))),
+                  BoxDecoration(color: Theme.of(context).scaffoldBackgroundColor, border: Border.all(color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.12))),
           child: CustomDropdownButtonHideUnderline(
             child: CustomDropdownButton<String>(
               elevation: widget.htmlToolbarOptions.dropdownElevation,
@@ -535,7 +535,7 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
             decoration: !widget.htmlToolbarOptions.renderBorder
                 ? null
                 : widget.htmlToolbarOptions.dropdownBoxDecoration ??
-                    BoxDecoration(color: Theme.of(context).scaffoldBackgroundColor, border: Border.all(color: Theme.of(context).colorScheme.onSurface.withOpacity(0.12))),
+                    BoxDecoration(color: Theme.of(context).scaffoldBackgroundColor, border: Border.all(color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.12))),
             child: CustomDropdownButtonHideUnderline(
               child: CustomDropdownButton<String>(
                 elevation: widget.htmlToolbarOptions.dropdownElevation,
@@ -592,7 +592,7 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
             decoration: !widget.htmlToolbarOptions.renderBorder
                 ? null
                 : widget.htmlToolbarOptions.dropdownBoxDecoration ??
-                    BoxDecoration(color: Theme.of(context).scaffoldBackgroundColor, border: Border.all(color: Theme.of(context).colorScheme.onSurface.withOpacity(0.12))),
+                    BoxDecoration(color: Theme.of(context).scaffoldBackgroundColor, border: Border.all(color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.12))),
             child: CustomDropdownButtonHideUnderline(
               child: CustomDropdownButton<double>(
                 elevation: widget.htmlToolbarOptions.dropdownElevation,
@@ -689,7 +689,7 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
             decoration: !widget.htmlToolbarOptions.renderBorder
                 ? null
                 : widget.htmlToolbarOptions.dropdownBoxDecoration ??
-                    BoxDecoration(color: Theme.of(context).scaffoldBackgroundColor, border: Border.all(color: Theme.of(context).colorScheme.onSurface.withOpacity(0.12))),
+                    BoxDecoration(color: Theme.of(context).scaffoldBackgroundColor, border: Border.all(color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.12))),
             child: CustomDropdownButtonHideUnderline(
               child: CustomDropdownButton<String>(
                 elevation: widget.htmlToolbarOptions.dropdownElevation,
@@ -883,14 +883,14 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
               if (t.getIcons()[index].icon == Icons.format_color_text) {
                 var proceed = await widget.htmlToolbarOptions.onButtonPressed?.call(ButtonType.foregroundColor, _colorSelected[index], updateStatus) ?? true;
                 if (proceed) {
-                  widget.controller.execCommand('foreColor', argument: (Colors.black.value & 0xFFFFFF).toRadixString(16).padLeft(6, '0').toUpperCase());
+                  widget.controller.execCommand('foreColor', argument: (Colors.black.toARGB32() & 0xFFFFFF).toRadixString(16).padLeft(6, '0').toUpperCase());
                   updateStatus(null);
                 }
               }
               if (t.getIcons()[index].icon == Icons.format_color_fill) {
                 var proceed = await widget.htmlToolbarOptions.onButtonPressed?.call(ButtonType.highlightColor, _colorSelected[index], updateStatus) ?? true;
                 if (proceed) {
-                  widget.controller.execCommand('hiliteColor', argument: (Colors.yellow.value & 0xFFFFFF).toRadixString(16).padLeft(6, '0').toUpperCase());
+                  widget.controller.execCommand('hiliteColor', argument: (Colors.yellow.toARGB32() & 0xFFFFFF).toRadixString(16).padLeft(6, '0').toUpperCase());
                   updateStatus(null);
                 }
               }
@@ -968,13 +968,13 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                             TextButton(
                               onPressed: () {
                                 if (t.getIcons()[index].icon == Icons.format_color_text) {
-                                  widget.controller.execCommand('foreColor', argument: (newColor.value & 0xFFFFFF).toRadixString(16).padLeft(6, '0').toUpperCase());
+                                  widget.controller.execCommand('foreColor', argument: (newColor.toARGB32() & 0xFFFFFF).toRadixString(16).padLeft(6, '0').toUpperCase());
                                   setState(mounted, this.setState, () {
                                     _foreColorSelected = newColor;
                                   });
                                 }
                                 if (t.getIcons()[index].icon == Icons.format_color_fill) {
-                                  widget.controller.execCommand('hiliteColor', argument: (newColor.value & 0xFFFFFF).toRadixString(16).padLeft(6, '0').toUpperCase());
+                                  widget.controller.execCommand('hiliteColor', argument: (newColor.toARGB32() & 0xFFFFFF).toRadixString(16).padLeft(6, '0').toUpperCase());
                                   setState(mounted, this.setState, () {
                                     _backColorSelected = newColor;
                                   });
@@ -1050,7 +1050,7 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
             decoration: !widget.htmlToolbarOptions.renderBorder
                 ? null
                 : widget.htmlToolbarOptions.dropdownBoxDecoration ??
-                    BoxDecoration(color: Theme.of(context).scaffoldBackgroundColor, border: Border.all(color: Theme.of(context).colorScheme.onSurface.withOpacity(0.12))),
+                    BoxDecoration(color: Theme.of(context).scaffoldBackgroundColor, border: Border.all(color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.12))),
             child: CustomDropdownButtonHideUnderline(
               child: CustomDropdownButton<String>(
                 elevation: widget.htmlToolbarOptions.dropdownElevation,
@@ -1235,7 +1235,7 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
             decoration: !widget.htmlToolbarOptions.renderBorder
                 ? null
                 : widget.htmlToolbarOptions.dropdownBoxDecoration ??
-                    BoxDecoration(color: Theme.of(context).scaffoldBackgroundColor, border: Border.all(color: Theme.of(context).colorScheme.onSurface.withOpacity(0.12))),
+                    BoxDecoration(color: Theme.of(context).scaffoldBackgroundColor, border: Border.all(color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.12))),
             child: CustomDropdownButtonHideUnderline(
               child: CustomDropdownButton<double>(
                 elevation: widget.htmlToolbarOptions.dropdownElevation,
@@ -1361,7 +1361,7 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
             decoration: !widget.htmlToolbarOptions.renderBorder
                 ? null
                 : widget.htmlToolbarOptions.dropdownBoxDecoration ??
-                    BoxDecoration(color: Theme.of(context).scaffoldBackgroundColor, border: Border.all(color: Theme.of(context).colorScheme.onSurface.withOpacity(0.12))),
+                    BoxDecoration(color: Theme.of(context).scaffoldBackgroundColor, border: Border.all(color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.12))),
             child: CustomDropdownButtonHideUnderline(
               child: CustomDropdownButton<String>(
                 elevation: widget.htmlToolbarOptions.dropdownElevation,
@@ -1528,7 +1528,7 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                                     ),
                                     ElevatedButton(
                                       style: ElevatedButton.styleFrom(
-                                          backgroundColor: Theme.of(context).dialogBackgroundColor, padding: EdgeInsets.only(left: 5, right: 5), elevation: 0.0),
+                                          backgroundColor: (Theme.of(context).dialogTheme.backgroundColor ?? Theme.of(context).colorScheme.surface), padding: EdgeInsets.only(left: 5, right: 5), elevation: 0.0),
                                       onPressed: () {
                                         setState(() {
                                           openNewTab = !openNewTab;
@@ -1577,7 +1577,7 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                 final filename = TextEditingController();
                 final url = TextEditingController();
                 final urlFocus = FocusNode();
-                FilePickerResult? result;
+                PlatformFile? result;
                 String? validateFailed;
                 await showDialog(
                     context: context,
@@ -1593,16 +1593,15 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                               if (widget.htmlToolbarOptions.allowImagePicking && filename.text.isEmpty)
                                 ElevatedButton(
                                   // style: ElevatedButton.styleFrom(
-                                  //     backgroundColor: Theme.of(context).dialogBackgroundColor, padding: EdgeInsets.only(left: 5, right: 5), elevation: 0.0),
+                                  //     backgroundColor: (Theme.of(context).dialogTheme.backgroundColor ?? Theme.of(context).colorScheme.surface), padding: EdgeInsets.only(left: 5, right: 5), elevation: 0.0),
                                   onPressed: () async {
-                                    result = await FilePicker.pickFiles(
+                                    result = await FilePicker.pickFile(
                                       type: FileType.image,
-                                      withData: true,
                                       allowedExtensions: widget.htmlToolbarOptions.imageExtensions,
                                     );
-                                    if (result?.files.single.name != null) {
+                                    if (result != null) {
                                       setState(() {
-                                        filename.text = result!.files.single.name;
+                                        filename.text = result!.name;
                                       });
                                     }
                                   },
@@ -1660,12 +1659,12 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                                     setState(() {
                                       validateFailed = 'Please input either an image or an image URL, not both!';
                                     });
-                                  } else if (filename.text.isNotEmpty && result?.files.single.bytes != null) {
-                                    var base64Data = base64.encode(result!.files.single.bytes!);
-                                    var proceed = await widget.htmlToolbarOptions.mediaUploadInterceptor?.call(result!.files.single, InsertFileType.image) ?? true;
+                                  } else if (filename.text.isNotEmpty && result != null) {
+                                    var base64Data = base64.encode(await result!.readAsBytes());
+                                    var proceed = await widget.htmlToolbarOptions.mediaUploadInterceptor?.call(result!, InsertFileType.image) ?? true;
                                     if (proceed) {
                                       widget.controller
-                                          .insertHtml("<img src='data:image/${result!.files.single.extension};base64,$base64Data' data-filename='${result!.files.single.name}'/>");
+                                          .insertHtml("<img src='data:image/${result!.extension};base64,$base64Data' data-filename='${result!.name}'/>");
                                     }
                                     Navigator.of(context).pop();
                                   } else {
@@ -1691,7 +1690,7 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                 final filename = TextEditingController();
                 final url = TextEditingController();
                 final urlFocus = FocusNode();
-                FilePickerResult? result;
+                PlatformFile? result;
                 String? validateFailed;
                 await showDialog(
                     context: context,
@@ -1710,16 +1709,15 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                                   decoration: InputDecoration(
                                     prefixIcon: ElevatedButton(
                                       style: ElevatedButton.styleFrom(
-                                          backgroundColor: Theme.of(context).dialogBackgroundColor, padding: EdgeInsets.only(left: 5, right: 5), elevation: 0.0),
+                                          backgroundColor: (Theme.of(context).dialogTheme.backgroundColor ?? Theme.of(context).colorScheme.surface), padding: EdgeInsets.only(left: 5, right: 5), elevation: 0.0),
                                       onPressed: () async {
-                                        result = await FilePicker.pickFiles(
+                                        result = await FilePicker.pickFile(
                                           type: FileType.audio,
-                                          withData: true,
                                           allowedExtensions: widget.htmlToolbarOptions.audioExtensions,
                                         );
-                                        if (result?.files.single.name != null) {
+                                        if (result != null) {
                                           setState(() {
-                                            filename.text = result!.files.single.name;
+                                            filename.text = result!.name;
                                           });
                                         }
                                       },
@@ -1771,12 +1769,12 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                                     setState(() {
                                       validateFailed = 'Please input either an audio file or an audio URL, not both!';
                                     });
-                                  } else if (filename.text.isNotEmpty && result?.files.single.bytes != null) {
-                                    var base64Data = base64.encode(result!.files.single.bytes!);
-                                    var proceed = await widget.htmlToolbarOptions.mediaUploadInterceptor?.call(result!.files.single, InsertFileType.audio) ?? true;
+                                  } else if (filename.text.isNotEmpty && result != null) {
+                                    var base64Data = base64.encode(await result!.readAsBytes());
+                                    var proceed = await widget.htmlToolbarOptions.mediaUploadInterceptor?.call(result!, InsertFileType.audio) ?? true;
                                     if (proceed) {
                                       widget.controller.insertHtml(
-                                          "<audio controls src='data:audio/${result!.files.single.extension};base64,$base64Data' data-filename='${result!.files.single.name}'></audio>");
+                                          "<audio controls src='data:audio/${result!.extension};base64,$base64Data' data-filename='${result!.name}'></audio>");
                                     }
                                     Navigator.of(context).pop();
                                   } else {
@@ -1802,7 +1800,7 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                 final filename = TextEditingController();
                 final url = TextEditingController();
                 final urlFocus = FocusNode();
-                FilePickerResult? result;
+                PlatformFile? result;
                 String? validateFailed;
                 await showDialog(
                     context: context,
@@ -1821,16 +1819,15 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                                   decoration: InputDecoration(
                                     prefixIcon: ElevatedButton(
                                       style: ElevatedButton.styleFrom(
-                                          backgroundColor: Theme.of(context).dialogBackgroundColor, padding: EdgeInsets.only(left: 5, right: 5), elevation: 0.0),
+                                          backgroundColor: (Theme.of(context).dialogTheme.backgroundColor ?? Theme.of(context).colorScheme.surface), padding: EdgeInsets.only(left: 5, right: 5), elevation: 0.0),
                                       onPressed: () async {
-                                        result = await FilePicker.pickFiles(
+                                        result = await FilePicker.pickFile(
                                           type: FileType.video,
-                                          withData: true,
                                           allowedExtensions: widget.htmlToolbarOptions.videoExtensions,
                                         );
-                                        if (result?.files.single.name != null) {
+                                        if (result != null) {
                                           setState(() {
-                                            filename.text = result!.files.single.name;
+                                            filename.text = result!.name;
                                           });
                                         }
                                       },
@@ -1882,12 +1879,12 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                                     setState(() {
                                       validateFailed = 'Please input either a video or a video URL, not both!';
                                     });
-                                  } else if (filename.text.isNotEmpty && result?.files.single.bytes != null) {
-                                    var base64Data = base64.encode(result!.files.single.bytes!);
-                                    var proceed = await widget.htmlToolbarOptions.mediaUploadInterceptor?.call(result!.files.single, InsertFileType.video) ?? true;
+                                  } else if (filename.text.isNotEmpty && result != null) {
+                                    var base64Data = base64.encode(await result!.readAsBytes());
+                                    var proceed = await widget.htmlToolbarOptions.mediaUploadInterceptor?.call(result!, InsertFileType.video) ?? true;
                                     if (proceed) {
                                       widget.controller.insertHtml(
-                                          "<video controls src='data:video/${result!.files.single.extension};base64,$base64Data' data-filename='${result!.files.single.name}'></video>");
+                                          "<video controls src='data:video/${result!.extension};base64,$base64Data' data-filename='${result!.name}'></video>");
                                     }
                                     Navigator.of(context).pop();
                                   } else {
@@ -1913,7 +1910,7 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                 final filename = TextEditingController();
                 final url = TextEditingController();
                 final urlFocus = FocusNode();
-                FilePickerResult? result;
+                PlatformFile? result;
                 String? validateFailed;
                 await showDialog(
                     context: context,
@@ -1932,16 +1929,15 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                                   decoration: InputDecoration(
                                     prefixIcon: ElevatedButton(
                                       style: ElevatedButton.styleFrom(
-                                          backgroundColor: Theme.of(context).dialogBackgroundColor, padding: EdgeInsets.only(left: 5, right: 5), elevation: 0.0),
+                                          backgroundColor: (Theme.of(context).dialogTheme.backgroundColor ?? Theme.of(context).colorScheme.surface), padding: EdgeInsets.only(left: 5, right: 5), elevation: 0.0),
                                       onPressed: () async {
-                                        result = await FilePicker.pickFiles(
+                                        result = await FilePicker.pickFile(
                                           type: FileType.any,
-                                          withData: true,
                                           allowedExtensions: widget.htmlToolbarOptions.otherFileExtensions,
                                         );
-                                        if (result?.files.single.name != null) {
+                                        if (result != null) {
                                           setState(() {
-                                            filename.text = result!.files.single.name;
+                                            filename.text = result!.name;
                                           });
                                         }
                                       },
@@ -1993,8 +1989,8 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                                     setState(() {
                                       validateFailed = 'Please input either a file or a file URL, not both!';
                                     });
-                                  } else if (filename.text.isNotEmpty && result?.files.single.bytes != null) {
-                                    widget.htmlToolbarOptions.onOtherFileUpload?.call(result!.files.single);
+                                  } else if (filename.text.isNotEmpty && result != null) {
+                                    widget.htmlToolbarOptions.onOtherFileUpload?.call(result!);
                                     Navigator.of(context).pop();
                                   } else {
                                     widget.htmlToolbarOptions.onOtherFileLinkInsert?.call(url.text);
@@ -2028,6 +2024,9 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                                 value: currentRows,
                                 minValue: 1,
                                 maxValue: 10,
+                                // numberpicker reads the legacy SDK Theme, so pass material_ui styles explicitly
+                                textStyle: Theme.of(context).textTheme.bodyMedium,
+                                selectedTextStyle: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Theme.of(context).colorScheme.secondary),
                                 onChanged: (value) => setState(() => currentRows = value),
                               ),
                               Text('x'),
@@ -2035,6 +2034,9 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                                 value: currentCols,
                                 minValue: 1,
                                 maxValue: 10,
+                                // numberpicker reads the legacy SDK Theme, so pass material_ui styles explicitly
+                                textStyle: Theme.of(context).textTheme.bodyMedium,
+                                selectedTextStyle: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Theme.of(context).colorScheme.secondary),
                                 onChanged: (value) => setState(() => currentCols = value),
                               ),
                             ]),

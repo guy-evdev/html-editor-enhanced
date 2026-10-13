@@ -1,3 +1,10 @@
+## [2.9.0] = 2026-10-13
+* **Breaking:** Requires Flutter 3.47+ / Dart 3.13+
+* **Breaking:** Migrated to `material_ui`; updated `file_picker` to 13 (`PlatformFile.bytes`/`size` are gone, use `readAsBytes()`/`length()`)
+* Migrated web from `dart:html` to `package:web` (wasm compatible)
+* Updated `flutter_inappwebview` to 6.2.0-beta.3 for AGP 9 support
+* Fixed analyzer warnings and deprecations; updated dependencies
+
 ## [2.8.0] = 2026-04-14
 * Updated dependencies
 

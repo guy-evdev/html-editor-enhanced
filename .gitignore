@@ -18,3 +18,28 @@ build/
 flutter_sdk.fvm
 .fvm/
 .flutter-plugins-dependencies
+
+# Flutter-generated, rebuilt on every `flutter pub get` / build
+**/ios/Flutter/ephemeral/
+**/macos/Flutter/ephemeral/
+**/.swiftpm/
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/Flutter/Flutter.podspec
+**/ios/Runner/GeneratedPluginRegistrant.*
+**/macos/Flutter/GeneratedPluginRegistrant.swift
+**/macos/Flutter/Flutter-Generated.xcconfig
+**/macos/Flutter/flutter_export_environment.sh
+
+# Android build state
+**/android/.gradle/
+**/android/local.properties
+**/android/**/GeneratedPluginRegistrant.java
+**/android/captures/
+**/android/.kotlin/
+**/android/key.properties
+*.jks
+*.keystore
+
+# Claude Code local state
+.claude/
