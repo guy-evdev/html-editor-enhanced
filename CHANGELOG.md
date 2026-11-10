@@ -1,3 +1,6 @@
+## [2.9.1] = 2026-11-10
+* Updated `file_picker` to `^13.3.3` (was pinned to exactly 13.1.0, which blocked apps from upgrading it)
+
 ## [2.9.0] = 2026-10-13
 * **Breaking:** Requires Flutter 3.47+ / Dart 3.13+
 * **Breaking:** Migrated to `material_ui`; updated `file_picker` to 13 (`PlatformFile.bytes`/`size` are gone, use `readAsBytes()`/`length()`)
